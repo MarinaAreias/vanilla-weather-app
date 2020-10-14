@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha284-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="crs.css" />
+
+    <title>Weather app</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form-inline" id="search-form">
+        <input
+          class="form-control mr-sm-3"
+          type="search"
+          placeholder="Search city"
+          id="city-submit"
+        />
+        <button class="btn my-2 my-sm-0 bg-light" type="submit">Search</button>
+      </form>
+      <button id="location">Current Location</button>
+      <div class="row">
+        <div class="col-8">
+          <div class="card-body">
+            <div class="card-text">
+              <h1></h1>
+
+              <h2>friday, 18 Sept 2020</h2>
+
+              <h3><span class="unit">℃</span></h3>
+              <small><span id="weather"></span> ⛅ </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="card-body">
+            <div class="card-text">
+              <p>Humidity</p>
+              <small><span id="humidity"></span>%</small>
+              <p>Wind</p>
+              <small> <span id="wind"></span>km/h </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          <div class="card" style="width: 5rem; height: 6rem; margin: 0 0 10px">
+            <div
+              class="card-body"
+              style="text-align: center; color: black; font-size: 15px"
+            >
+              14:00 ⛅ 12 °C
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card" style="width: 5rem; height: 6rem">
+            <div
+              class="card-body"
+              style="text-align: center; color: black; font-size: 15px"
+            >
+              15:00 ⛅ 12 °C
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card" style="width: 5rem; height: 6rem">
+            <div
+              class="card-body"
+              style="text-align: center; color: black; font-size: 15px"
+            >
+              16:00 ⛅ 12 °C
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card" style="width: 5rem; height: 6rem">
+            <div
+              class="card-body"
+              style="text-align: center; color: black; font-size: 15px"
+            >
+              17:00 ⛅ 12 °C
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <ul>
+        <li>16/9 Thu ⛅ 22/11 °C</li>
+        <li>17/9 Fri ⛅ 22/11 °C</li>
+        <li>18/9 Sat ⛅ 22/11 °C</li>
+        <li>19/9 Sun ⛅ 22/11 °C</li>
+
+        <li>20/9 Mon ⛅ 22/11 °C</li>
+
+        <li>21/9 Tues ⛅ 22/11 °C</li>
+      </ul>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

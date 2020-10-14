@@ -1,0 +1,57 @@
+.container {
+  max-width: 450px;
+  background-image: linear-gradient(
+    to top,
+    #505285 0%,
+    #585e92 12%,
+    #65689f 25%,
+    #7474b0 37%,
+    #7e7ebb 50%,
+    #8389c7 62%,
+    #9795d4 75%,
+    #a2a1dc 87%,
+    #b5aee4 100%
+  );
+  padding: 30px;
+  margin: 100px auto;
+  border-radius: 10px;
+  color: white;
+  font-family: sans-serif;
+  border: 1px solid grey;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 40px;
+}
+p {
+  font-size: 26px;
+  color: #56637d;
+}
+
+small {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  font-size: 24px;
+  text-align: left;
+}
+
+.location {
+  display: block;
+  margin: 0 auto;
+}
+
+.unit {
+  position: relative;
+  top: -34px;
+}
