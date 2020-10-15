@@ -55,3 +55,13 @@ ul {
   position: relative;
   top: -34px;
 }
+
+#open-source {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+
+  position: relative;
+  top: -90px;
+  right: 120px;
+}
