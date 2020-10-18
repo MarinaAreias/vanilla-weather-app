@@ -1,23 +1,12 @@
 .container {
   max-width: 450px;
-  background-image: linear-gradient(
-    to top,
-    #505285 0%,
-    #585e92 12%,
-    #65689f 25%,
-    #7474b0 37%,
-    #7e7ebb 50%,
-    #8389c7 62%,
-    #9795d4 75%,
-    #a2a1dc 87%,
-    #b5aee4 100%
-  );
+  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
   padding: 30px;
   margin: 100px auto;
   border-radius: 10px;
   color: white;
   font-family: sans-serif;
-  border: 1px solid grey;
+  border: 1px solid #dadce0;
 }
 
 h1 {
@@ -41,19 +30,33 @@ small {
 }
 
 ul {
+  margin: 0;
+  padding: 0;
+}
+li {
   list-style: none;
   font-size: 24px;
-  text-align: left;
+  text-align: center;
 }
 
-.location {
+#location {
   display: block;
   margin: 0 auto;
-}
-
-.unit {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
   position: relative;
-  top: -34px;
+  right: -98px;
+  top: 7px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  border-color: 0.15s ease-in-out;
+  background-color: white;
+  transition: all 0.15s ease-in-out;
+}
+#location:hover {
+  background-color: #efefef;
+  cursor: pointer;
 }
 
 #open-source {
@@ -64,4 +67,9 @@ ul {
   position: relative;
   top: -90px;
   right: 120px;
+}
+
+.unit {
+  position: relative;
+  top: -34px;
 }
