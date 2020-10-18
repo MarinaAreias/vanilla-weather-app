@@ -26,8 +26,9 @@ h3 {
 }
 .unit {
   position: relative;
-  font-size: 16px;
-  top: -32px;
+  font-size: 30px;
+  top: -7rem;
+  right: -11rem;
   float: left;
 }
 #style-weather {

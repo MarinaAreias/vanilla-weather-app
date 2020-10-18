@@ -31,7 +31,7 @@ function displayWeather(response) {
   console.log(response.data);
 
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("h3").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round( response.data.wind.speed);
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
