@@ -33,10 +33,13 @@ function displayWeather(response) {
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("h3").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+  document.querySelector("#wind").innerHTML = Math.round( response.data.wind.speed);
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
+  document.querySelector("#icon").innerHTML = response.data.weather[0].icon;
+  
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+);
 }
 
 // this function is to provide a cith by default when on load

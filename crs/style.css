@@ -13,6 +13,7 @@ h1 {
   font-size: 40px;
   font-weight: bold;
   color: white;
+  text-transform: capitalize;
 }
 
 h2 {
@@ -24,12 +25,16 @@ h3 {
   text-align: center;
 }
 .unit {
-  color: white;
+  position: relative;
+  font-size: 16px;
+  top: -32px;
+  float: left;
 }
 #style-weather {
   font-size: 25px;
   position: relative;
   bottom: 20px;
+  text-transform: capitalize;
 }
 #humi-wind {
   list-style: none;
