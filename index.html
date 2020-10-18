@@ -38,8 +38,8 @@
 
               <h2>friday, 18 Sept 2020</h2>
 
-              <h3><span class="unit">℃</span></h3>
-              <small><span id="weather"></span> ⛅ </small>
+              <h3 ><span class="unit">℃</span> </h3>
+              <small id="style-weather"><span id="weather"></span> ⛅ </small>
             </div>
           </div>
         </div>
@@ -47,10 +47,12 @@
         <div class="col-4">
           <div class="card-body">
             <div class="card-text">
-              <p>Humidity</p>
-              <small><span id="humidity"></span>%</small>
-              <p>Wind</p>
-              <small> <span id="wind"></span>km/h </small>
+             <ul id="humi-wind">
+               <li>Humidity</li> 
+              <small class="humid-percent"><span id="humidity"> </span>%</small>
+              <li>Wind</li>
+              <small class="wind-force"> <span id="wind"></span>km/h </small>
+              </ul>
             </div>
           </div>
         </div>
@@ -104,7 +106,7 @@
 
       <br />
 
-      <ul>
+      <ul id="forecast">
  
         <li>16/9 Thu ⛅ 22/11 °C</li>
         <li>17/9 Fri ⛅ 22/11 °C</li>

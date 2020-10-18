@@ -11,29 +11,43 @@
 
 h1 {
   font-size: 40px;
+  font-weight: bold;
+  color: white;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 100px;
+  text-align: center;
 }
-p {
-  font-size: 26px;
+#style-weather {
+  font-size: 25px;
+  position: relative;
+  bottom: 20px;
+}
+#humi-wind {
+  list-style: none;
+  font-size: 20px;
   color: #56637d;
+  margin-top: 100px;
 }
-
-small {
-  font-weight: bold;
+.humid-percent {
+  color: white;
+  font-size: 19px;
+}
+.wind-force {
+  color: white;
+  font-size: 19px;
 }
 
 ul {
   margin: 0;
   padding: 0;
 }
-li {
+#forecast {
   list-style: none;
   font-size: 24px;
   text-align: center;
@@ -71,5 +85,7 @@ li {
 
 .unit {
   position: relative;
-  top: -34px;
+  left: 70px;
+  font-size: 30px;
+  color: white;
 }
