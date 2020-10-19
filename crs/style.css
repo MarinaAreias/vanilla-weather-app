@@ -22,20 +22,36 @@ h2 {
 
 h3 {
   font-size: 100px;
-  text-align: center;
+  text-align: left;
 }
+
+.c-element .active {
+  color: white;
+  cursor: default;
+}
+
+.c-element .active:hover {
+  text-decoration: none;
+}
+
 .unit {
   position: relative;
   font-size: 30px;
   top: -7rem;
-  right: -11rem;
+  right: -7rem;
   float: left;
 }
 #style-weather {
   font-size: 25px;
   position: relative;
-  bottom: 20px;
+  left: -70px;
+  bottom: -10px;
   text-transform: capitalize;
+}
+#icon {
+  position: relative;
+  right: -6rem;
+  top: -70px;
 }
 #humi-wind {
   list-style: none;

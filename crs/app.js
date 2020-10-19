@@ -36,6 +36,8 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round( response.data.wind.speed);
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
   document.querySelector("#icon").innerHTML = response.data.weather[0].icon;
+
+  celsiusTemperature = response.data.main.temp;
   
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -73,10 +75,55 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+// search , city by default
+
 searchCity("Rotterdam");
+
+
+// adding the fahrenheit link
+function displayFahrenheitTemp (event) {
+  event.preventDefault();
+  //inside a fucntion is a local variable
+  // remove active class from Celsius link. so when F clicked C becomes blue
+  celsiusLink.classList.remove("active");
+  //add active class to Fahrenheit. so when F clicked F becomes white
+  fahrenheitLink.classList.add("active");
+
+   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+ //celsius link fucntion
+
+ function displaycelsiusTemp (event){
+   event.preventDefault();
+
+   // add active class to C. so when C gets clicked C becomes white
+   celsiusLink.classList.add("active");
+//  when C gets clicked C becomes white
+   fahrenheitLink.classList.remove("active");
+   let temperatureElement = document.querySelector("#temperature");
+  
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+ }
+
+let celsiusTemperature = null;
+
+// adding the fahrenheit link
+let fahrenheitLink = document.querySelector ("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp)
+
+// adding the Celsius link
+let celsiusLink = document.querySelector ("#celsius-link");
+celsiusLink.addEventListener("click", displaycelsiusTemp);
+
 
 //
 //week 5 homework
