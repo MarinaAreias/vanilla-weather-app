@@ -51,9 +51,12 @@ h3 {
 #icon {
   position: relative;
   right: -6rem;
-  top: -70px;
+  top: -90px;
 }
+
 #humi-wind {
+  position: relative;
+  left: -30px;
   list-style: none;
   font-size: 20px;
   color: #56637d;
@@ -66,16 +69,6 @@ h3 {
 .wind-force {
   color: white;
   font-size: 19px;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-#forecast {
-  list-style: none;
-  font-size: 20px;
-  text-align: center;
 }
 
 #location {
@@ -98,11 +91,16 @@ ul {
   cursor: pointer;
 }
 
+.weather-forecast h4 {
+  font-size: 14px;
+}
+
 #open-source {
   text-align: center;
   font-size: 14px;
+  color: black;
   font-weight: bold;
   position: relative;
-  top: -90px;
+  bottom: -60px;
   right: 120px;
 }

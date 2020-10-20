@@ -21,14 +21,23 @@ let day = days[now.getDay()];
 
 h2.innerHTML = `${day} ${date}, ${year} ${hour}:${minutes}`;
 
-//
+
 // homework week 5
 // api needs to be inside the form function
 // make an api call to Openweather API
 // once i get  the HTTP response, we display the city name and the temperature
 
+//to be able to get formated hours from api that is inside the displayForecast function
+function formatHours(timestamp){
+  let date = now.getDate();
+let hour = now.getHours();
+let minutes = now.getMinutes();
+
+return `${hour}:${minutes}`
+
+}
+
 function displayWeather(response) {
-  console.log(response.data);
 
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
@@ -41,7 +50,59 @@ function displayWeather(response) {
   
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-);
+  );
+}
+
+//this will call the Forecast
+//could add forecast.main.temp_min to forecast temp
+
+function displayForecast(response) {
+
+  
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecast = response.data.list[0];
+  console.log(response.data.list[0]);
+
+  forecastElement.innerHTML = `<div class="col-3">
+          <div class="card" style="width: 5rem; height: 6rem; margin: 0 0 10px">
+            <div
+              class="card-body"
+              style="text-align: center; color: black; font-size: 15px;">
+              <h4><strong>
+              ${formatHours(forecast.dt *1000)}</strong>
+              </h4>
+               <img 
+               src= "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
+            />
+                <div class= "weather-forecast-temp">
+                 ${Math.round(forecast.main.temp_max)}°C
+                  </div>
+            </div>
+          </div>
+        </div>`;
+
+        //this will be the loop
+
+        forecast = response.data.list[1];
+
+         forecastElement.innerHTML += `
+         <div class="col-3">
+          
+              <h4><strong>
+              ${formatHours(forecast.dt *1000)}</strong>
+              </h4>
+
+             <img 
+               src= "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
+            /> 
+                <div class= "weather-forecast-temp">
+                 ${Math.round(forecast.main.temp_max)}°C
+                  </div>
+            
+          
+        </div>`; 
+  
 }
 
 // this function is to provide a cith by default when on load
@@ -49,8 +110,11 @@ function displayWeather(response) {
 function searchCity(city) {
   let apiKey = "0adaa91f644d84f9dd2a3896dae4fdb0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
   axios.get(apiUrl).then(displayWeather);
+
+  //this will call the api
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function handleSubmit(event) {
@@ -106,8 +170,9 @@ function displayFahrenheitTemp (event) {
 
    // add active class to C. so when C gets clicked C becomes white
    celsiusLink.classList.add("active");
-//  when C gets clicked C becomes white
+//  when C gets clicked F becomes blue
    fahrenheitLink.classList.remove("active");
+
    let temperatureElement = document.querySelector("#temperature");
   
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
