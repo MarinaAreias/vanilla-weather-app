@@ -58,14 +58,17 @@ function displayWeather(response) {
 
 function displayForecast(response) {
 
-  
   let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = null;
 
-  let forecast = response.data.list[0];
-  console.log(response.data.list[0]);
+   //for loop
 
-  forecastElement.innerHTML = `<div class="col-3">
-          <div class="card" style="width: 5rem; height: 6rem; margin: 0 0 10px">
+   for (let index = 0; index < 4; index ++){
+
+    let forecast = response.data.list[index];
+
+     forecastElement.innerHTML += `<div class="col-3">
+          <div class="card" style="width: 5rem; height: 7rem; margin: 0 0 10px">
             <div
               class="card-body"
               style="text-align: center; color: black; font-size: 15px;">
@@ -81,28 +84,8 @@ function displayForecast(response) {
             </div>
           </div>
         </div>`;
-
-        //this will be the loop
-
-        forecast = response.data.list[1];
-
-         forecastElement.innerHTML += `
-         <div class="col-3">
-          
-              <h4><strong>
-              ${formatHours(forecast.dt *1000)}</strong>
-              </h4>
-
-             <img 
-               src= "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
-            /> 
-                <div class= "weather-forecast-temp">
-                 ${Math.round(forecast.main.temp_max)}°C
-                  </div>
-            
-          
-        </div>`; 
-  
+   }
+      
 }
 
 // this function is to provide a cith by default when on load
@@ -112,7 +95,7 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 
-  //this will call the api
+  //this will call the api for forecast
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }

@@ -25,6 +25,10 @@ h3 {
   text-align: left;
 }
 
+ {
+  font-size: 06px;
+}
+
 .c-element .active {
   color: white;
   cursor: default;
@@ -93,6 +97,12 @@ h3 {
 
 .weather-forecast h4 {
   font-size: 14px;
+  height: 8px;
+}
+
+.weather-forecast img {
+  width: 100%;
+  top: 60px;
 }
 
 #open-source {
