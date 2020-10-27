@@ -1,3 +1,4 @@
+
 let now = new Date();
 
 let h2 = document.querySelector("h2");
@@ -28,13 +29,18 @@ h2.innerHTML = `${day} ${date}, ${year} ${hour}:${minutes}`;
 // once i get  the HTTP response, we display the city name and the temperature
 
 //to be able to get formated hours from api that is inside the displayForecast function
-function formatHours(timestamp){
-  let date = now.getDate();
-let hour = now.getHours();
-let minutes = now.getMinutes();
 
-return `${hour}:${minutes}`
-
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hour}:${minutes}`;
 }
 
 function displayWeather(response) {
@@ -58,6 +64,8 @@ function displayWeather(response) {
 
 function displayForecast(response) {
 
+  console.log(response.data);
+   
   let forecastElement = document.querySelector("#forecast");
 forecastElement.innerHTML = null;
 
@@ -73,14 +81,15 @@ forecastElement.innerHTML = null;
               class="card-body"
               style="text-align: center; color: black; font-size: 15px;">
               <h4><strong>
-              ${formatHours(forecast.dt *1000)}</strong>
+              ${formatHours(forecast.dt)}</strong>
               </h4>
                <img 
                src= "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
             />
                 <div class= "weather-forecast-temp">
                  ${Math.round(forecast.main.temp_max)}°C
-                  </div>
+                 
+              </div>
             </div>
           </div>
         </div>`;
@@ -88,7 +97,7 @@ forecastElement.innerHTML = null;
       
 }
 
-// this function is to provide a cith by default when on load
+// this function is to provide a city by default when on load
 //so the screen doesn`t show empty
 function searchCity(city) {
   let apiKey = "0adaa91f644d84f9dd2a3896dae4fdb0";
