@@ -81,7 +81,7 @@ forecastElement.innerHTML = null;
               class="card-body"
               style="text-align: center; color: black; font-size: 15px;">
               <h4><strong>
-              ${formatHours(forecast.dt)}</strong>
+              ${formatHours(forecast.dt *1000)}</strong>
               </h4>
                <img 
                src= "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
