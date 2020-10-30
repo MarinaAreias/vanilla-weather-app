@@ -57,14 +57,40 @@ function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  
 }
+
+// the same axios because the api gives us the same strucuture
+function searchLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "0adaa91f644d84f9dd2a3896dae4fdb0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeather);
+  
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+
+function getCurrentPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+//week 5 homework
+// add a button with current location
+
+let button = document.querySelector("#location");
+button.addEventListener("click", getCurrentPosition );
 
 //this will call the Forecast
 //could add forecast.main.temp_min to forecast temp
 
 function displayForecast(response) {
-
-  console.log(response.data);
+ console.log(response.data);
    
   let forecastElement = document.querySelector("#forecast");
 forecastElement.innerHTML = null;
@@ -93,6 +119,8 @@ forecastElement.innerHTML = null;
             </div>
           </div>
         </div>`;
+        
+
    }
       
 }
@@ -116,21 +144,7 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-// the same axios because the api gives us the same strucuture
-function searchLocation(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "0adaa91f644d84f9dd2a3896dae4fdb0";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(displayWeather);
-}
-
-function getCurrentPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
-
+//
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -180,11 +194,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp)
 // adding the Celsius link
 let celsiusLink = document.querySelector ("#celsius-link");
 celsiusLink.addEventListener("click", displaycelsiusTemp);
-
-
-//
-//week 5 homework
-// add a button with current location
-
-let button = document.querySelector("#location");
-button.addEventListener("click", getCurrentPosition);
